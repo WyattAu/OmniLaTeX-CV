@@ -1,0 +1,258 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build: Root (dev)",
+            "type": "shell",
+            "command": "python3",
+            "args": ["build.py", "--mode", "dev", "build-root"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            }
+        },
+        {
+            "label": "Build: Root (prod)",
+            "type": "shell",
+            "command": "python3",
+            "args": ["build.py", "--mode", "prod", "build-root"],
+            "group": "build",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Build: All (dev)",
+            "type": "shell",
+            "command": "python3",
+            "args": ["build.py", "--mode", "dev", "build-all"],
+            "group": "build",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Build: All (prod)",
+            "type": "shell",
+            "command": "python3",
+            "args": ["build.py", "--mode", "prod", "build-all"],
+            "group": "build",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Build: Examples (dev, checklist)",
+            "type": "shell",
+            "command": "python3",
+            "args": [
+                "tools/build_examples_select.py",
+                "--mode",
+                "dev"
+            ],
+            "group": "build",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Build: Examples (prod, checklist)",
+            "type": "shell",
+            "command": "python3",
+            "args": [
+                "tools/build_examples_select.py",
+                "--mode",
+                "prod"
+            ],
+            "group": "build",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Build: Example (prompt)",
+            "type": "shell",
+            "command": "python3",
+            "args": [
+                "build.py",
+                "--mode",
+                "dev",
+                "build-example",
+                "${input:omnilatexExample}"
+            ],
+            "group": "build",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "List: Examples",
+            "type": "shell",
+            "command": "python3",
+            "args": ["build.py", "list-examples"],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Clean: Root aux",
+            "type": "shell",
+            "command": "python3",
+            "args": ["build.py", "clean-aux"],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "silent",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Clean: Examples",
+            "type": "shell",
+            "command": "python3",
+            "args": ["build.py", "clean-examples"],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "silent",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Clean: Deep",
+            "type": "shell",
+            "command": "python3",
+            "args": ["build.py", "clean"],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Preflight: Environment",
+            "type": "shell",
+            "command": "python3",
+            "args": ["build.py", "--verbose", "preflight"],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Test: Suite",
+            "type": "shell",
+            "command": "python3",
+            "args": ["build.py", "test"],
+            "group": "test",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Format: latexindent",
+            "type": "shell",
+            "command": "latexindent",
+            "args": ["-w", "main.tex"],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Lint: chktex",
+            "type": "shell",
+            "command": "chktex",
+            "args": ["-q", "-v0", "main.tex"],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Git: Pre-commit",
+            "type": "shell",
+            "command": "pre-commit",
+            "args": ["run", "--all-files"],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Quality: Format + Lint + Pre-commit",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "Format: latexindent",
+                "Lint: chktex",
+                "Git: Pre-commit"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Stats: Word count",
+            "type": "shell",
+            "command": "texcount",
+            "args": ["-total", "-q", "main.tex"],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Open: Build output",
+            "type": "shell",
+            "command": "xdg-open",
+            "args": ["build/examples/"],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "silent"
+            }
+        },
+        {
+            "label": "Open: Main PDF",
+            "type": "shell",
+            "command": "xdg-open",
+            "args": ["main.pdf"],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "silent"
+            }
+        }
+    ],
+    "inputs": [
+        {
+            "id": "omnilatexExample",
+            "type": "promptString",
+            "description": "Example name to build (e.g., article, journal, cv)"
+        }
+    ]
+}
