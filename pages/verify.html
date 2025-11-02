@@ -300,7 +300,7 @@
       </label>
       <label>
         Repository (owner/repo)
-        <input id="repo-input" type="text" name="repo" value="WyattAu/OmniLaTeX-template" />
+        <input id="repo-input" type="text" name="repo" value="WyattAu/OmniLaTeX-CV" />
       </label>
       <label>
         Reference branch
@@ -432,7 +432,7 @@
       const params = new URLSearchParams(window.location.search);
       return {
         commit: params.get("commit")?.trim(),
-        repo: params.get("repo")?.trim() || "WyattAu/OmniLaTeX-template",
+        repo: params.get("repo")?.trim() || "WyattAu/OmniLaTeX-CV",
         branch: params.get("branch")?.trim() || "main",
         project: params.get("project")?.trim(),
       };

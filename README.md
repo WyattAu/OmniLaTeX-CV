@@ -1,12 +1,11 @@
-# OmniLaTeX
+# OmniLaTeX-CV
 
-A modular LaTeX template system for academic and professional documents. This fork from the TUHH thesis template provides boilerplates for multiple document types. This uses LuaLaTeX for compilation through latexmk, run builds with `build.py` file.
+A modular LaTeX template system for building CVs, derived from my OmniLaTeX-template which was for books and thesis.
 
 ## Features
 
-- Support for books, theses, dissertations, articles, journals, CVs, manuals, technical reports, patents, and standards
 - LuaLaTeX engine with Lua scripting
-- Modern typography system with Libertinus Serif + Monaspace Neon fonts
+- Modern typography system with Libertinus Serif + Monaspace Neon fonts + Atkinson Hyperlegible Next sans font
 - Native bold/italic support for code listings and improved Unicode mathematical symbols
 - Content support for code listings, mathematics, tables, figures, bibliographies, glossaries, TikZ graphics, and multi-language documents
 - CI/CD integration for GitHub Actions, GitLab CI, Forgejo, and Gitea
@@ -18,28 +17,9 @@ A modular LaTeX template system for academic and professional documents. This fo
 
 OmniLaTeX uses a modern typography system based on:
 
-- **Libertinus Serif** for main text and mathematical content
-- **Monaspace Neon** for monospace/code listings
-- **Atkinson Hyperlegible Next** for sans-serif elements
-
-### Benefits of the Font System
-
-**Native Bold/Italic Support**: Code listings now display true bold and italic formatting without font faking
-
-**Enhanced Unicode Support**: Improved mathematical symbol rendering and international character support
-
-**Better Typography**: Libertinus fonts provide superior readability and character spacing
-
-**Professional Appearance**: Modern font stack suitable for academic and professional documents
-
-## Migration from Previous Versions
-
-If you're upgrading from a version using TeX Gyre Pagella and Inconsolata fonts:
-
-1. **No Manual Changes Required**: The migration is handled automatically in the font configuration
-2. **Benefits**: Better code formatting, improved mathematical symbols, and enhanced overall typography
-3. **Backward Compatibility**: All existing LaTeX code continues to work without modification
-4. **Build Process**: Use the same compilation commands as before
+- **Libertinus Serif**: for main text and mathematical content
+- **Monaspace Neon**: for monospace/code listings
+- **Atkinson Hyperlegible Next**: for sans-serif elements
 
 ## Installation
 
@@ -124,13 +104,7 @@ python build.py preflight
 
 ### Document Types
 
-Configure the document type in your `.tex` file:
-
-```latex
-\documentclass[doctype=thesis,institution=tuhh]{omnilatex}
-```
-
-Available types: `book`, `thesis`, `dissertation`, `article`, `inlinepaper`, `journal`, `manual`, `technicalreport`, `standard`, `patent`, `cv`, `dictionary`
+For other document types, refer to <https://github.com/WyattAu/OmniLaTeX-template>
 
 ### Configuration
 
@@ -139,15 +113,6 @@ Customize documents through configuration files:
 - `config/document-settings.sty`: Global settings
 - `config/document-types/*.sty`: Document type settings
 - `config/institutions/*.sty`: Institution branding
-
-## Examples
-
-The `examples/` directory contains templates:
-
-- `minimal-starter/`: Basic setup with all assets
-- `thesis-tuhh/`: TUHH-specific thesis template
-- `article-color/`: Colored article template
-- `cv-bw/`: Black and white CV template
 
 Build an example:
 ```bash
