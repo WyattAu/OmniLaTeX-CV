@@ -13,6 +13,18 @@ A modular LaTeX template system for building CVs, derived from my OmniLaTeX-temp
 - Docker container for consistent builds
 - Ready-to-use templates in the examples directory
 
+## CV Recommendations
+| Feature | UK Version | US Version | German Version |
+| :--- | :--- | :--- | :--- |
+| **Photo** | Remove | Remove | **Include** (Professional Headshot) |
+| **Personal Details**| Minimal (Name, Contact) | Minimal (Name, Contact) | **Include** (Date/Place of Birth, Nationality) |
+| **Length** | 1-2 Pages | 1 Page (ideally) | 1-2 Pages |
+| **Terminology** | CV | Resume | Lebenslauf |
+| **Opening Section** | Personal Statement | Professional Summary/Objective | No standard summary, but a "Profil" is an option |
+| **Signature & Date**| No | No | **Include** |
+| **References** | Omit phrase | Omit phrase | Not explicitly required but can be included |
+
+
 ## Font System
 
 OmniLaTeX uses a modern typography system based on:
